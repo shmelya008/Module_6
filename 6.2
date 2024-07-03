@@ -1,0 +1,49 @@
+class Vehicle:
+    __COLOR_VARIANTS = ['Black', 'Blue', 'White', 'Green', 'Red']
+
+    def __init__(self, owner, __model, __engin_power, __color):
+        self.owner = str(owner)
+        self.__model = str(__model)
+        self.__engin_power = int(__engin_power)
+        self.__color = str(__color)
+
+    def get_model(self):
+        return f'Модель: {self.__model}'
+
+    def get_horsepower(self):
+        return f'Мощность двигателя: {self.__engin_power} h.p.'
+
+    def get_color(self):
+        return f'Цвет: {self.__color}'
+
+    def print_info(self):
+        print(Vehicle.get_model(self))
+        print(Vehicle.get_horsepower(self))
+        print(Vehicle.get_color(self))
+        print(f'Владелец: {self.owner}')
+        print('')
+
+    def set_color(self, new_color):
+        if str(new_color.lower()) in str(Vehicle.__COLOR_VARIANTS).lower():
+            self.__color = new_color
+
+        else:
+            print(f'Нельзя сменить цвет на {new_color}')
+            print('')
+
+
+class Sedan(Vehicle):
+    __PASSENGERS_LIMIT = 5
+
+
+vehicle1 = Sedan('General Motors', 'Opel Astra J', 180, 'Brown')
+vehicle2 = Vehicle('Bruce Willis', 'UAZ', 84, 'dark green')
+
+vehicle1.print_info()
+vehicle1.set_color('RozePerl')
+vehicle1.set_color("WhItE")
+vehicle1.owner = 'Sergey'
+vehicle1.print_info()
+
+vehicle2.print_info()
+vehicle2.set_color('Кваказябра')
