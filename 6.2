@@ -17,14 +17,14 @@ class Vehicle:
         return f'Цвет: {self.__color}'
 
     def print_info(self):
-        print(Vehicle.get_model(self))
-        print(Vehicle.get_horsepower(self))
-        print(Vehicle.get_color(self))
+        print(self.get_model())
+        print(self.get_horsepower())
+        print(self.get_color())
         print(f'Владелец: {self.owner}')
         print('')
 
     def set_color(self, new_color):
-        if str(new_color.lower()) in str(Vehicle.__COLOR_VARIANTS).lower():
+        if str(new_color.lower()) in str(self.__COLOR_VARIANTS).lower():
             self.__color = new_color
 
         else:
